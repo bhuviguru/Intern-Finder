@@ -1,4 +1,5 @@
 from .base_scraper import BaseScraper
+from src.utils.date_parser import parse_posted_date, is_recent
 from datetime import datetime
 import time
 
@@ -56,12 +57,24 @@ class InternshalaScraper(BaseScraper):
                         stipend = (await stipend_elem.inner_text()).strip() if stipend_elem else "Not disclosed"
                         link = "https://internshala.com" + await link_elem.get_attribute("href")
                         
-                        # Posted info is sometimes hidden or relative text
-                        # We'll use current date for scraped date
-                        
-                        # Deadline is available in .supply_demand_detal_container .other_detail_item (order varies)
-                        # Skipping detailed deadline parsing for speed, can add later
-                        
+                        # Extract Posted Date
+                        # Usually in .status-success or .status-container span containing "Posted"
+                        # We'll try to find text referencing "Posted" in the card
+                        posted_date = None
+                        try:
+                            status_elem = await card.query_selector(".status-success") or await card.query_selector(".status")
+                            if status_elem:
+                                status_text = await status_elem.inner_text()
+                                if "Posted" in status_text:
+                                    posted_date = parse_posted_date(status_text)
+                        except:
+                            pass
+                            
+                        # Filter by date (Max 3 days)
+                        if not is_recent(posted_date, max_days=3):
+                            self.logger.info(f"Skipping old job: {role} (Posted: {posted_date})")
+                            continue
+
                         job = {
                             "site": "Internshala",
                             "company": company,
@@ -69,8 +82,8 @@ class InternshalaScraper(BaseScraper):
                             "stipend": stipend,
                             "location": location,
                             "link": link,
-                            "deadline": None, # Needs deeper parsing
-                            "posted_date": datetime.now().strftime("%Y-%m-%d")
+                            "deadline": None, 
+                            "posted_date": posted_date or datetime.now().strftime("%Y-%m-%d")
                         }
                         jobs.append(job)
                         
@@ -83,3 +96,37 @@ class InternshalaScraper(BaseScraper):
             await page.close()
             
         return jobs
+
+    async def verify_eligibility(self, link):
+        """
+        Visits the job detail page to check for specific ineligibility criteria.
+        Returns Tuple (is_eligible, reason)
+        """
+        if not self.browser:
+            return True, "No browser"
+
+        page = await self.browser.new_page()
+        try:
+            self.logger.info(f"Verifying eligibility for: {link}")
+            await page.goto(link, timeout=30000)
+            await page.wait_for_load_state("domcontentloaded")
+            
+            content = await page.content()
+            content_lower = content.lower()
+            
+            # Check 1: Women only
+            if "women expecting to start/restart their career" in content_lower:
+                # Assuming general user is a student, and this category is restrictive
+                return False, "Women returning to work only"
+            
+            # Check 2: "Who can apply" heavy restrictions
+            # This is harder to parse generally without specific user profile gender/etc.
+            # But the "Women" one is the most common cause of "Not Eligible" for general male students
+            
+            return True, "Eligible"
+            
+        except Exception as e:
+            self.logger.error(f"Error verifying eligibility: {e}")
+            return True, "Error verifying" # Fail open to avoid blocking valid jobs on error
+        finally:
+            await page.close()

@@ -6,11 +6,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# Ensure the database is created in the project root
 DB_NAME = os.getenv('DB_NAME', 'internships.db')
-# Ensure the database is created in the project root or specifically where needed.
-# For simplicity, we'll put it in the parent directory of src/ or just use a relative path.
-# Relative path 'sqlite:///internships.db' creates it in the CWD (which is typically project root).
-DB_URL = f"sqlite:///{DB_NAME}"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+DB_PATH = os.path.join(BASE_DIR, DB_NAME)
+DB_URL = f"sqlite:///{DB_PATH}"
 
 engine = create_engine(DB_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

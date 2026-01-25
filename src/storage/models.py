@@ -9,6 +9,7 @@ class Job(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     site = Column(String, nullable=False)
+    source_type = Column(String, default='aggregator')  # 'aggregator' or 'company_direct'
     company = Column(String, nullable=False)
     role = Column(String, nullable=False)
     stipend = Column(String)

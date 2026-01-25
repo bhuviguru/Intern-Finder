@@ -1,5 +1,5 @@
 {
-    "top_n": 5,
+    "top_n": 15,
     "schedule_time": "09:00",
     "send_email": true,
     "send_telegram": false,

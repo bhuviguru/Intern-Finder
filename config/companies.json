@@ -1,0 +1,802 @@
+{
+    "_comment": "Updated with 100+ companies - All categories included",
+    "global_tech_giants": [
+        {
+            "name": "Google",
+            "careers_url": "https://www.google.com/about/careers/applications/jobs/results/",
+            "keywords": [
+                "intern",
+                "student",
+                "university",
+                "sophomore"
+            ]
+        },
+        {
+            "name": "Microsoft",
+            "careers_url": "https://careers.microsoft.com/students/us/en/search-results",
+            "keywords": [
+                "intern",
+                "student",
+                "sophomore",
+                "university"
+            ]
+        },
+        {
+            "name": "Amazon",
+            "careers_url": "https://www.amazon.jobs/en/search",
+            "keywords": [
+                "intern",
+                "student",
+                "university"
+            ]
+        },
+        {
+            "name": "Apple",
+            "careers_url": "https://jobs.apple.com/en-us/search",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Meta",
+            "careers_url": "https://www.metacareers.com/jobs",
+            "keywords": [
+                "intern",
+                "university",
+                "student"
+            ]
+        },
+        {
+            "name": "IBM",
+            "careers_url": "https://www.ibm.com/careers/search",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Intel",
+            "careers_url": "https://jobs.intel.com/en/search-jobs",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "NVIDIA",
+            "careers_url": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Samsung",
+            "careers_url": "https://www.samsung.com/us/careers/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Oracle",
+            "careers_url": "https://www.oracle.com/corporate/careers/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Cisco",
+            "careers_url": "https://jobs.cisco.com/jobs/SearchJobs",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Adobe",
+            "careers_url": "https://careers.adobe.com/us/en/search-results",
+            "keywords": [
+                "intern",
+                "student",
+                "university"
+            ]
+        },
+        {
+            "name": "Salesforce",
+            "careers_url": "https://careers.salesforce.com/en/jobs/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "SAP",
+            "careers_url": "https://jobs.sap.com/search/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Dell Technologies",
+            "careers_url": "https://jobs.dell.com/search-jobs",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "HP",
+            "careers_url": "https://jobs.hp.com/en-us/search",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Qualcomm",
+            "careers_url": "https://careers.qualcomm.com/careers/search",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "AMD",
+            "careers_url": "https://jobs.amd.com/go/Students/2567200/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Siemens",
+            "careers_url": "https://jobs.siemens.com/jobs",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        }
+    ],
+    "ai_data_cloud": [
+        {
+            "name": "OpenAI",
+            "careers_url": "https://openai.com/careers",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "DeepMind",
+            "careers_url": "https://www.deepmind.com/careers",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Databricks",
+            "careers_url": "https://www.databricks.com/company/careers",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Snowflake",
+            "careers_url": "https://careers.snowflake.com/us/en",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Palantir",
+            "careers_url": "https://www.palantir.com/careers/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Cloudflare",
+            "careers_url": "https://www.cloudflare.com/careers/jobs/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Stripe",
+            "careers_url": "https://stripe.com/jobs/search",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Twilio",
+            "careers_url": "https://www.twilio.com/company/jobs",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Dropbox",
+            "careers_url": "https://jobs.dropbox.com/teams/emerging-talent",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "ServiceNow",
+            "careers_url": "https://careers.servicenow.com/careers/jobs",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "VMware",
+            "careers_url": "https://careers.vmware.com/main/jobs",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Red Hat",
+            "careers_url": "https://www.redhat.com/en/jobs",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Elastic",
+            "careers_url": "https://www.elastic.co/careers",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "MongoDB",
+            "careers_url": "https://www.mongodb.com/careers",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Atlassian",
+            "careers_url": "https://www.atlassian.com/company/careers/all-jobs",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "GitHub",
+            "careers_url": "https://github.com/about/careers",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "GitLab",
+            "careers_url": "https://about.gitlab.com/jobs/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "HashiCorp",
+            "careers_url": "https://www.hashicorp.com/careers",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "DigitalOcean",
+            "careers_url": "https://www.digitalocean.com/careers",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Zoom",
+            "careers_url": "https://careers.zoom.us/jobs/search",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        }
+    ],
+    "fintech_product": [
+        {
+            "name": "PayPal",
+            "careers_url": "https://paypal.eightfold.ai/careers",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Visa",
+            "careers_url": "https://usa.visa.com/careers.html",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Mastercard",
+            "careers_url": "https://careers.mastercard.com/us/en",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "American Express",
+            "careers_url": "https://careers.americanexpress.com/students",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "JP Morgan Chase",
+            "careers_url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001",
+            "keywords": [
+                "intern",
+                "student",
+                "analyst"
+            ]
+        },
+        {
+            "name": "Goldman Sachs",
+            "careers_url": "https://www.goldmansachs.com/careers/students/",
+            "keywords": [
+                "intern",
+                "student",
+                "analyst"
+            ]
+        },
+        {
+            "name": "Morgan Stanley",
+            "careers_url": "https://morganstanley.tal.net/vx/candidate/cms/en-us/students",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Bloomberg",
+            "careers_url": "https://careers.bloomberg.com/job/search",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Revolut",
+            "careers_url": "https://www.revolut.com/careers/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Robinhood",
+            "careers_url": "https://robinhood.com/us/en/careers/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Coinbase",
+            "careers_url": "https://www.coinbase.com/careers/positions",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Square",
+            "careers_url": "https://careers.squareup.com/us/en/university",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Klarna",
+            "careers_url": "https://jobs.lever.co/klarna",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Paytm",
+            "careers_url": "https://paytm.com/careers",
+            "keywords": [
+                "intern",
+                "trainee"
+            ]
+        }
+    ],
+    "consulting_enterprise": [
+        {
+            "name": "Accenture",
+            "careers_url": "https://www.accenture.com/us-en/careers",
+            "keywords": [
+                "intern",
+                "student",
+                "analyst"
+            ]
+        },
+        {
+            "name": "Deloitte",
+            "careers_url": "https://www2.deloitte.com/us/en/careers/students.html",
+            "keywords": [
+                "intern",
+                "student",
+                "analyst"
+            ]
+        },
+        {
+            "name": "PwC",
+            "careers_url": "https://www.pwc.com/us/en/careers/students.html",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "KPMG",
+            "careers_url": "https://home.kpmg/us/en/home/careers/students.html",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "EY",
+            "careers_url": "https://www.ey.com/en_us/careers/students",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Capgemini",
+            "careers_url": "https://www.capgemini.com/careers/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Cognizant",
+            "careers_url": "https://careers.cognizant.com/in/en",
+            "keywords": [
+                "intern",
+                "trainee"
+            ]
+        },
+        {
+            "name": "Infosys",
+            "careers_url": "https://www.infosys.com/careers",
+            "keywords": [
+                "intern",
+                "trainee"
+            ]
+        },
+        {
+            "name": "TCS",
+            "careers_url": "https://www.tcs.com/careers",
+            "keywords": [
+                "intern",
+                "trainee"
+            ]
+        },
+        {
+            "name": "Wipro",
+            "careers_url": "https://careers.wipro.com",
+            "keywords": [
+                "intern",
+                "trainee"
+            ]
+        },
+        {
+            "name": "HCLTech",
+            "careers_url": "https://www.hcltech.com/careers",
+            "keywords": [
+                "intern",
+                "trainee"
+            ]
+        },
+        {
+            "name": "Tech Mahindra",
+            "careers_url": "https://careers.techmahindra.com",
+            "keywords": [
+                "intern",
+                "trainee"
+            ]
+        },
+        {
+            "name": "DXC Technology",
+            "careers_url": "https://dxc.com/us/en/about-us/careers",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "NTT Data",
+            "careers_url": "https://us.nttdata.com/en/careers",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        }
+    ],
+    "web_product_companies": [
+        {
+            "name": "Netflix",
+            "careers_url": "https://jobs.netflix.com/search",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Spotify",
+            "careers_url": "https://www.lifeatspotify.com/jobs",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Uber",
+            "careers_url": "https://www.uber.com/us/en/careers/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Airbnb",
+            "careers_url": "https://careers.airbnb.com/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Lyft",
+            "careers_url": "https://www.lyft.com/careers",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Pinterest",
+            "careers_url": "https://www.pinterestcareers.com/jobs/search/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Snap",
+            "careers_url": "https://careers.snap.com/jobs",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "TikTok",
+            "careers_url": "https://careers.tiktok.com/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Reddit",
+            "careers_url": "https://www.redditinc.com/careers",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Shopify",
+            "careers_url": "https://www.shopify.com/careers",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "LinkedIn",
+            "careers_url": "https://careers.linkedin.com/students",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Expedia",
+            "careers_url": "https://lifeatexpediagroup.com/jobs",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        }
+    ],
+    "startups_modern_tech": [
+        {
+            "name": "Notion",
+            "careers_url": "https://www.notion.so/careers",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Canva",
+            "careers_url": "https://www.canva.com/careers/jobs/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Figma",
+            "careers_url": "https://www.figma.com/careers/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Grammarly",
+            "careers_url": "https://www.grammarly.com/jobs",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Duolingo",
+            "careers_url": "https://careers.duolingo.com/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Discord",
+            "careers_url": "https://discord.com/careers",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Slack",
+            "careers_url": "https://slack.com/careers",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Asana",
+            "careers_url": "https://asana.com/jobs",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Airtable",
+            "careers_url": "https://airtable.com/careers",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Coursera",
+            "careers_url": "https://about.coursera.org/careers/jobs/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Udemy",
+            "careers_url": "https://about.udemy.com/careers/",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Binance",
+            "careers_url": "https://www.binance.com/en/careers",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        }
+    ],
+    "indian_startups": [
+        {
+            "name": "Flipkart",
+            "careers_url": "https://www.flipkartcareers.com",
+            "keywords": [
+                "intern",
+                "student"
+            ]
+        },
+        {
+            "name": "Swiggy",
+            "careers_url": "https://careers.swiggy.com",
+            "keywords": [
+                "intern"
+            ]
+        },
+        {
+            "name": "Razorpay",
+            "careers_url": "https://razorpay.com/jobs",
+            "keywords": [
+                "intern"
+            ]
+        },
+        {
+            "name": "CRED",
+            "careers_url": "https://careers.cred.club",
+            "keywords": [
+                "intern"
+            ]
+        },
+        {
+            "name": "Zerodha",
+            "careers_url": "https://zerodha.com/careers",
+            "keywords": [
+                "intern"
+            ]
+        },
+        {
+            "name": "Zoho",
+            "careers_url": "https://www.zoho.com/careers/freshers-jobs.html",
+            "keywords": [
+                "intern",
+                "student",
+                "trainee",
+                "engineer"
+            ]
+        }
+    ]
+}

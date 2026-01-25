@@ -1,4 +1,5 @@
 from .base_scraper import BaseScraper
+from src.utils.date_parser import parse_posted_date, is_recent
 from datetime import datetime
 import time
 
@@ -44,6 +45,28 @@ class NaukriScraper(BaseScraper):
                         stipend = (await stipend_elem.inner_text()).strip() if stipend_elem else "Not disclosed"
                         link = await link_elem.get_attribute("href")
                         
+                        # Naukri Date parsing
+                        posted_date = None
+                        try:
+                            # Naukri puts date in .job-desc-type or similar span
+                            # We'll check the text content for "Posted" or days ago
+                            all_text = await card.inner_text()
+                            lines = all_text.split('\n')
+                            for line in lines:
+                                if "days ago" in line.lower() or "today" in line.lower():
+                                    parsed = parse_posted_date(line)
+                                    if parsed:
+                                        posted_date = parsed
+                                        break
+                        except:
+                            pass
+                        
+                        # Filter by date (Max 3 days)
+                        if not is_recent(posted_date, max_days=3):
+                            # Naukri often shows "30+ days ago", definitely skip those
+                            if posted_date: 
+                                continue
+
                         job = {
                             "site": "Naukri",
                             "company": company,
@@ -52,7 +75,7 @@ class NaukriScraper(BaseScraper):
                             "location": location,
                             "link": link,
                             "deadline": None,
-                            "posted_date": datetime.now().strftime("%Y-%m-%d")
+                            "posted_date": posted_date or datetime.now().strftime("%Y-%m-%d")
                         }
                         jobs.append(job)
                         

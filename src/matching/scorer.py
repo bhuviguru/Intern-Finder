@@ -1,21 +1,27 @@
 import json
 import os
 
+import logging
+
 class Scorer:
     def __init__(self, keywords_config_path='config/keywords.json'):
+        # Get absolute path relative to project root
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        if not os.path.isabs(keywords_config_path):
+            keywords_config_path = os.path.join(base_dir, keywords_config_path)
+            
+        self.logger = logging.getLogger(__name__)
         self.keywords_config = self._load_config(keywords_config_path)
     
     def _load_config(self, path):
-        # Handle relative path from project root
         if not os.path.exists(path):
-            # Fallback to absolute path or try finding it
-            # Assuming running from project root
-            pass
+            self.logger.warning(f"Keywords config not found at {path}")
+            return {"roles": [], "filters": []}
         try:
             with open(path, 'r') as f:
                 return json.load(f)
         except Exception as e:
-            print(f"Error loading keywords config: {e}")
+            self.logger.error(f"Error loading keywords config: {e}")
             return {"roles": [], "filters": []}
 
     def score_job(self, job_data):
