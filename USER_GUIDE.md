@@ -1,44 +1,48 @@
-# Internship Finder Bot - User Guide
+# 🤖 Internship Finder Bot - The Ultimate Guide
 
-## 🚀 Easy Setup (For New Users)
+Welcome to your automated internship hunter! This bot works for you 24/7.
 
-### 1. Requirements
-- Download & Install [Python](https://www.python.org/downloads/) (Make sure "Add Python to PATH" is checked during installation)
+## 📥 How to Install (For New Users)
+1.  **Download Code**: Clone this repo or unzip the folder.
+2.  **Secret Key**: Create a file named `.env` in the folder and add:
+    ```ini
+    SMTP_EMAIL=your_email@gmail.com
+    SMTP_PASSWORD=your_app_password
+    DB_NAME=internships.db
+    ```
+    *(Need an App Password? Go to Google Account > Security > 2-Step Verification > App Passwords)*
 
-### 2. Installation
-1. Download/Unzip this folder.
-2. Double-click `setup_daily_automation.bat` (Run as Administrator).
-   - This will automatically:
-     - Install required libraries.
-     - Install browser drivers.
-     - Create a `.env` file if it's missing.
-     - Schedule the bot to run daily at 9:00 AM.
-
-### 3. Configuration
-1. Open `.env` file with Notepad.
-2. Enter your email credentials:
-   ```
-   SMTP_EMAIL=your_email@gmail.com
-   SMTP_PASSWORD=your_app_password
-   ```
-   *(Note: For Gmail, use an App Password, not your login password)*
-
-3. (Optional) Customize search in `config/companies.json` or `config/keywords.json`.
+3.  **One-Click Setup**:
+    *   Right-click `setup_daily_automation.bat`
+    *   Select **Run as Administrator**
+    *   Done! 🟢
 
 ---
 
-## 📅 Daily Automation
-Once you run the setup script, the bot is set to 9:00 AM daily.
-- You can restart your PC; the task remembers.
-- You don't need to keep any window open.
+## 📅 Automatic Schedule
+The bot is now programmed to run **Daily at 9:00 AM**.
 
-## 🧪 Testing
-To test immediately:
-Run command prompt in the folder and type:
-```bash
-python -m src.main
-```
+### "What if my laptop is OFF?" 🛑
+*   **Don't worry.** The automation is "Self-Healing".
+*   If your laptop is off at 9:00 AM, the bot will run **immediately** the moment you turn it on.
+*   It logs every run in `logs/task_output.log` so you can verify it.
 
-## ❓ Troubleshooting
-- **No Email?** Check `.env` password and "Spam" folder.
-- **Errors?** Check `logs/bot.log`.
+---
+
+## ☁️ Cloud Mode (Optional)
+If you want it to run even when your laptop is broken/lost:
+1.  Go to your GitHub Repository Settings.
+2.  Add Secrets: `SMTP_EMAIL` and `SMTP_PASSWORD`.
+3.  GitHub's servers will now run it for you every day.
+
+---
+
+## ❓ FAQ
+*   **How do I stop it?**
+    *   Open `Task Scheduler` app -> Right-click `InternshipBotDaily` -> Disable.
+*   **Where are the internships?**
+    *   Check your email! 📧  (And `internships.db` file for history).
+*   **Is my password safe?**
+    *   Yes. It stays on your laptop in the `.env` file. It is never shared.
+
+Enjoy your automated career growth! 🚀
