@@ -22,6 +22,7 @@ def job_wrapper():
     try:
         main_job()
         logger.info("✅ Daily job finished.")
+        print(f"✅ Job finished. Next run scheduled for tomorrow.")
     except Exception as e:
         logger.error(f"❌ Daily job failed: {e}")
 
@@ -32,6 +33,8 @@ def run_scheduler():
     hour, minute = map(int, time_str.split(':'))
     
     logger.info(f"⏳ Starting Scheduler. Bot will run daily at {time_str}")
+    print(f"✅ Scheduler Started! The bot will run automatically at {time_str} every day.")
+    print("Press Ctrl+C to stop.")
     
     # Schedule the job
     scheduler.add_job(job_wrapper, 'cron', hour=hour, minute=minute)
@@ -39,6 +42,7 @@ def run_scheduler():
     # Graceful shutdown
     def signal_handler(sig, frame):
         logger.info('Stopping scheduler...')
+        print("\nStopping scheduler...")
         scheduler.shutdown()
         sys.exit(0)
 

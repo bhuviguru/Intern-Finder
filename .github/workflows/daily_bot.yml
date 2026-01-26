@@ -1,0 +1,46 @@
+name: Daily Internship Bot
+
+on:
+  schedule:
+    # Runs at 03:30 UTC everyday (which is 09:00 AM IST)
+    - cron: '30 3 * * *'
+  workflow_dispatch: # Allow manual trigger from GitHub UI
+
+jobs:
+  find-internships:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write  # Need write permission to save the database back to repo
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          playwright install chromium
+
+      - name: Run Internship Bot
+        env:
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          DB_NAME: internships.db
+        run: |
+          python -m src.main
+
+      - name: Commit Database Changes (Persist History)
+        run: |
+          git config --global user.name "Internship Bot"
+          git config --global user.email "bot@github.com"
+          git add internships.db
+          # Only commit if db changed
+          git commit -m "Update internship database [skip ci]" || exit 0
+          git push

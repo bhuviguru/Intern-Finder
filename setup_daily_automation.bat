@@ -50,7 +50,9 @@ echo Creating Windows Task Scheduler task...
 echo This will make the bot run EVERY DAY at 9:00 AM automatically.
 echo.
 
-schtasks /Create /TN "InternshipBotDaily" /TR "\"%PYTHON_PATH%\" -m src.main" /SC DAILY /ST 09:00 /F /RL HIGHEST /RU "%USERNAME%" /RP "" /IT
+echo.
+echo Executing Advanced Setup via PowerShell...
+PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& '%~dp0setup_task.ps1'"
 
 if %ERRORLEVEL% EQU 0 (
     echo.
@@ -61,8 +63,11 @@ if %ERRORLEVEL% EQU 0 (
     echo The bot will now run EVERY DAY at 9:00 AM
     echo Even if you restart your computer!
     echo.
-    echo To test it right now, run:
-    echo   python -m src.main
+    echo To check logs:
+    echo   Open logs\task_output.log
+    echo.
+    echo To test it right now manually:
+    echo   Double-click run_finder.bat
     echo.
     echo To see the task in Task Scheduler:
     echo   Press Win+R, type: taskschd.msc
