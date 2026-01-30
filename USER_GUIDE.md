@@ -20,11 +20,11 @@ Welcome to your automated internship hunter! This bot works for you 24/7.
 ---
 
 ## 📅 Automatic Schedule
-The bot is now programmed to run **Daily at 9:00 AM**.
+The bot is now programmed to run **Daily at 10:00 PM**.
 
 ### "What if my laptop is OFF?" 🛑
 *   **Don't worry.** The automation is "Self-Healing".
-*   If your laptop is off at 9:00 AM, the bot will run **immediately** the moment you turn it on.
+*   If your laptop is off at 10:00 PM, the bot will run **immediately** the moment you turn it on.
 *   It logs every run in `logs/task_output.log` so you can verify it.
 
 ---

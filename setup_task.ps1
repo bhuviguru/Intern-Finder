@@ -14,8 +14,8 @@ if (Get-ScheduledTask -TaskName $TaskName -ErrorAction SilentlyContinue) {
 # Create Action
 $Action = New-ScheduledTaskAction -Execute $ScriptPath
 
-# Create Trigger (Daily at 9:00 AM)
-$Trigger = New-ScheduledTaskTrigger -Daily -At "09:00AM"
+# Create Trigger (Daily at 10:00 PM)
+$Trigger = New-ScheduledTaskTrigger -Daily -At "10:00PM"
 
 # Create Settings
 # - AllowStartIfOnBatteries: Run even if laptop is unplugged
@@ -42,11 +42,11 @@ Register-ScheduledTask `
     -Trigger $Trigger `
     -Settings $Settings `
     -TaskName $TaskName `
-    -Description "Runs Internship Finder Bot Daily at 9 AM" `
+    -Description "Runs Internship Finder Bot Daily at 10 PM" `
     -RunLevel Highest
 
 Write-Host "✅ Task '$TaskName' created successfully!" -ForegroundColor Green
-Write-Host " - Runs Daily at 9:00 AM"
+Write-Host " - Runs Daily at 10:00 PM"
 Write-Host " - Wakes computer from sleep"
-Write-Host " - Runs ASAP if computer was off at 9:00 AM"
+Write-Host " - Runs ASAP if computer was off at 10:00 PM"
 Write-Host "--------------------------------------------"

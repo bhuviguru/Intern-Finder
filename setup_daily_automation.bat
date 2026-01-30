@@ -47,7 +47,7 @@ if not exist ".env" (
 REM Create the task
 echo.
 echo Creating Windows Task Scheduler task...
-echo This will make the bot run EVERY DAY at 9:00 AM automatically.
+echo This will make the bot run EVERY DAY at 10:00 PM automatically.
 echo.
 
 echo.
@@ -60,7 +60,7 @@ if %ERRORLEVEL% EQU 0 (
     echo  SUCCESS! Task created successfully!
     echo ================================================
     echo.
-    echo The bot will now run EVERY DAY at 9:00 AM
+    echo The bot will now run EVERY DAY at 10:00 PM
     echo Even if you restart your computer!
     echo.
     echo To check logs:
