@@ -170,6 +170,8 @@ def main_job():
     except Exception as e:
         logger.error(f"CRITICAL ERROR in main_job: {e}", exc_info=True)
         # Log full traceback for debugging (handled by logger with exc_info=True or manually)
-        
+        import sys
+        sys.exit(1)
+
 if __name__ == "__main__":
     main_job()

@@ -8,18 +8,19 @@ import json
 from pathlib import Path
 
 def check_mark(passed):
-    return "✅" if passed else "❌"
+    return "[PASS]" if passed else "[FAIL]"
+
 
 def main():
     print("=" * 70)
-    print("🔍 INTERNSHIP FINDER BOT - AUTOMATION VERIFICATION")
+    print("INTERNSHIP FINDER BOT - AUTOMATION VERIFICATION")
     print("=" * 70)
     print()
     
     all_checks = []
     
     # 1. Check GitHub Actions Workflow File
-    print("1️⃣  GITHUB ACTIONS WORKFLOW")
+    print("1. GITHUB ACTIONS WORKFLOW")
     workflow_file = Path(".github/workflows/daily_bot.yml")
     workflow_exists = workflow_file.exists()
     print(f"   {check_mark(workflow_exists)} Workflow file exists: {workflow_file}")
@@ -40,7 +41,7 @@ def main():
     print()
     
     # 2. Check Configuration Files
-    print("2️⃣  CONFIGURATION FILES")
+    print("2. CONFIGURATION FILES")
     
     # Settings.json
     settings_file = Path("config/settings.json")
@@ -53,7 +54,7 @@ def main():
             settings = json.load(f)
             email_enabled = settings.get('send_email', False)
             print(f"   {check_mark(email_enabled)} Email notifications enabled")
-            print(f"   📧 Will send top {settings.get('top_n', 0)} matches")
+            print(f"   - Will send top {settings.get('top_n', 0)} matches")
             all_checks.append(email_enabled)
     
     # Keywords.json
@@ -65,7 +66,7 @@ def main():
     print()
     
     # 3. Check Required Files
-    print("3️⃣  REQUIRED PROJECT FILES")
+    print("3. REQUIRED PROJECT FILES")
     required_files = [
         "src/main.py",
         "requirements.txt",
@@ -80,7 +81,7 @@ def main():
     print()
     
     # 4. Check Git Repository
-    print("4️⃣  GIT REPOSITORY")
+    print("4. GIT REPOSITORY")
     git_dir = Path(".git")
     is_git_repo = git_dir.exists()
     print(f"   {check_mark(is_git_repo)} Is a Git repository")
@@ -99,17 +100,17 @@ def main():
                 for line in result.stdout.split('\n'):
                     if 'origin' in line and '(push)' in line:
                         url = line.split()[1]
-                        print(f"   📍 Repository: {url}")
+                        print(f"   - Repository: {url}")
                         break
             all_checks.append(has_remote)
         except Exception as e:
-            print(f"   ❌ Error checking git remote: {e}")
+            print(f"   [ERROR] Error checking git remote: {e}")
             all_checks.append(False)
     
     print()
     
     # 5. Environment Variables Check
-    print("5️⃣  ENVIRONMENT VARIABLES (.env)")
+    print("5. ENVIRONMENT VARIABLES (.env)")
     env_file = Path(".env")
     env_exists = env_file.exists()
     print(f"   {check_mark(env_exists)} .env file exists (local only)")
@@ -127,14 +128,14 @@ def main():
         print(f"   {check_mark(has_email)} SMTP_EMAIL configured: {smtp_email if has_email else 'NOT SET'}")
         print(f"   {check_mark(has_password)} SMTP_PASSWORD configured: {'***' if has_password else 'NOT SET'}")
         
-        print(f"   ⚠️  Note: .env is for local testing only")
-        print(f"   ⚠️  GitHub Actions uses GitHub Secrets (not .env)")
+        print(f"   - Note: .env is for local testing only")
+        print(f"   - GitHub Actions uses GitHub Secrets (not .env)")
     
     print()
     
     # Summary
     print("=" * 70)
-    print("📊 SUMMARY")
+    print("SUMMARY")
     print("=" * 70)
     
     passed = sum(all_checks)
@@ -145,9 +146,9 @@ def main():
     print()
     
     if percentage == 100:
-        print("✅ ✅ ✅  ALL CHECKS PASSED!  ✅ ✅ ✅")
+        print("ALL CHECKS PASSED!")
         print()
-        print("🎉 Your bot is READY for cloud automation!")
+        print("Your bot is READY for cloud automation!")
         print()
         print("NEXT STEPS:")
         print("1. Make sure you've pushed the code to GitHub:")
@@ -167,13 +168,13 @@ def main():
         print("4. You can also trigger it manually from GitHub Actions tab")
         print()
     elif percentage >= 70:
-        print("⚠️  MOST CHECKS PASSED - Minor issues to fix")
+        print("MOST CHECKS PASSED - Minor issues to fix")
         print()
-        print("Please review the ❌ items above and fix them.")
+        print("Please review the [FAIL] items above and fix them.")
     else:
-        print("❌ CRITICAL ISSUES FOUND")
+        print("CRITICAL ISSUES FOUND")
         print()
-        print("Please fix the ❌ items above before the bot can work automatically.")
+        print("Please fix the [FAIL] items above before the bot can work automatically.")
     
     print("=" * 70)
     
