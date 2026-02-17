@@ -2,8 +2,8 @@ name: Daily Internship Bot
 
 on:
   schedule:
-    # Runs at 16:30 UTC everyday (which is 22:00 PM IST)
-    - cron: '30 16 * * *'
+    # Runs at 11:30 UTC everyday (which is 17:00 PM IST / 5:00 PM IST)
+    - cron: '30 11 * * *'
   workflow_dispatch: # Allow manual trigger from GitHub UI
 
 jobs:
