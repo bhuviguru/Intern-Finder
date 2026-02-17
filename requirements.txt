@@ -1,7 +1,0 @@
-playwright
-python-dotenv
-apscheduler
-sqlalchemy
-beautifulsoup4
-# pandas - kept if needed for data analysis later
-# requests - kept for simple requests
