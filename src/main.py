@@ -77,16 +77,14 @@ def main_job():
         except Exception as e:
             logger.error(f"Scraping process failed: {e}")
             raw_jobs = []
-            # Continue anyway - maybe some jobs were scraped before error
 
-        # 4. Score & Save (Deduplication happens in save_job)
+        # 4. Score & Save
         scorer = Scorer()
         new_jobs_count = 0
         
         db_gen = get_db()
         session = next(db_gen)
         
-        # Score and save jobs with error handling for each job
         for job_data in raw_jobs:
             try:
                 score = scorer.score_job(job_data)
@@ -96,14 +94,11 @@ def main_job():
                     new_jobs_count += 1
             except Exception as e:
                 logger.error(f"Error saving job: {e}")
-                continue  # Skip this job and continue with others
+                continue
                 
         logger.info(f"New unique jobs saved: {new_jobs_count}")
 
-
-
         # 5. Shortlist & Notify
-        # Fetch extra candidates to account for verification failures
         try:
             candidates = get_unnotified_jobs(session, limit=top_n * 2) 
         except Exception as e:
@@ -118,31 +113,19 @@ def main_job():
 
         logger.info(f"Verifying eligibility for top candidates...")
         
-        # Run verification using the service
-        
         try:
-            # Filter eligible jobs
             verified_jobs = asyncio.run(verify_top_jobs(candidates, top_n))
-            
-            # Identify ineligible jobs (in candidates but not in verified_jobs)
-            # We mark verified ones as 'sent' (or ready). 
-            # Ineligible ones will be skipped for this run.
-            
             unnotified_jobs = verified_jobs[:top_n]
-            
         except Exception as e:
             logger.error(f"Verification failed: {e}", exc_info=True)
-            unnotified_jobs = candidates[:top_n] # Fallback to unverified
+            unnotified_jobs = candidates[:top_n]
 
         logger.info(f"Preparing notification for {len(unnotified_jobs)} jobs.")
         
-        # Send Notifications with error handling
         email_sender = EmailSender()
         answer_gen = AnswerGenerator()
-        
         notification_sent = False
         
-        # Email
         if settings.get('send_email', False):
             try:
                 subject = f"🔥 Top {len(unnotified_jobs)} Matches + AI Answers"
@@ -155,21 +138,19 @@ def main_job():
         # 6. Update notification status in DB
         if notification_sent:
             try:
-                # Mark emailed jobs as sent
                 job_ids = [j.id for j in unnotified_jobs]
                 mark_jobs_as_sent(session, job_ids)
                 logger.info("Jobs marked as notified.")
             except Exception as e:
                 logger.error(f"Error marking jobs as sent: {e}")
         else:
-            logger.warning("Notifications were not sent (maybe disabled or failed). Jobs remain un-notified.")
+            logger.warning("Notifications sent: False (Disabled or Failed)")
 
         session.close()
         logger.info("Daily Check Complete.")
         
     except Exception as e:
         logger.error(f"CRITICAL ERROR in main_job: {e}", exc_info=True)
-        # Log full traceback for debugging (handled by logger with exc_info=True or manually)
         import sys
         sys.exit(1)
 
